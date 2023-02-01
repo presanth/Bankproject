@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    background-image: url("./assets/bg.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.navbox{
+    width: 100%;
+    height: 3.8rem;
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+}
+.navbox h3{
+    margin-left: 3rem;
+    font-size: 1.8rem;
+    font-family: sans-serif;
+    color: blue;
+}
+.footerbox{
+    width: 100%;
+    height: 3rem;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    background: gray ;
+}
