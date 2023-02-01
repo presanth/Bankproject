@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="container">
     <div class="loginbox">
         <h3>Signin</h3>
@@ -10,6 +10,24 @@
         </div>
         <div class="buttonbox">
             <button (click)="login()" type="button">Login</button>
+        </div>
+    </div>
+</div> -->
+
+
+<!-- template rendering binding -->
+
+<div class="container">
+    <div class="loginbox">
+        <h3>Signin</h3>
+        <div class="acnobox">
+            <input #acno type="number" id="accountnumber" placeholder="Enter Account Number">
+        </div>
+        <div class="passbox">
+            <input #pass type="password"  id="pass" placeholder="enter password">
+        </div>
+        <div class="buttonbox">
+            <button (click)="login(acno,pass)" type="button">Login</button>
         </div>
     </div>
 </div>
