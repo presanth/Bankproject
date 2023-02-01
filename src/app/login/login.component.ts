@@ -19,27 +19,9 @@ export class LoginComponent implements OnInit{
   ngOnInit () : void {
 
   }
-  // login(){
-  //   var acnum = this.acno
-  //   var pswrd = this.pass
-  //   var userDetails = this.userDetails
-  //   if(acnum in userDetails){
-  //     if(pswrd == userDetails[acnum]["password"]){
-  //       alert('login success')
-  //     }else{
-  //       alert('incorrect password')
-  //     }
-  //   }else{
-  //     alert('incorrect acccount number or not registerd');
-  //   }
-  // }
-
-
-  // template rendering binding
-
-  login(a:any,b:any){
-    var acnum = a.value
-    var pswrd = b.value
+  login(){
+    var acnum = this.acno
+    var pswrd = this.pass
     var userDetails = this.userDetails
     if(acnum in userDetails){
       if(pswrd == userDetails[acnum]["password"]){
@@ -52,13 +34,4 @@ export class LoginComponent implements OnInit{
     }
   }
 
-
-  acnoChange(event:any){
-    this.acno=event.target.value
-  }
-  passChange(event:any){
-    this.pass=event.target.value
-    console.log(this.pass);
-    
-  }
 }
