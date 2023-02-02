@@ -18,16 +18,13 @@ export class LoginComponent implements OnInit{
   login(){
     var acnum = this.acno
     var pswrd = this.pass
-    var userDetails = this.ds.userDetails
-    if(acnum in userDetails){
-      if(pswrd == userDetails[acnum]["password"]){
-        alert('login success')
-        this.router.navigateByUrl('dashbord')
-      }else{
-        alert('incorrect password')
-      }
+
+    var result = this.ds.userLogin(acnum,pswrd)
+    if(result){
+      alert('login success')
+      this.router.navigateByUrl('dashbord')
     }else{
-      alert('incorrect acccount number or not registerd');
+      alert('incorrect acno or pass')
     }
   }
 

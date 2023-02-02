@@ -20,18 +20,18 @@
 <div class="container">
     <div class="loginbox">
         <h3>Signin</h3>
-        <!-- <form action=""> -->
-            <div class="acnobox">
-                <input [(ngModel)]="acno" type="number" id="accountnumber" placeholder="Enter Account Number">
+        <form action="" (ngSubmit)="login()">
+            <div class="box">
+                <input [(ngModel)]="acno" type="number" name="accountnumber" id="accountnumber" placeholder="Enter Account Number">
             </div>
-            <div class="passbox">
-                <input [(ngModel)]="pass" type="password"  id="pass" placeholder="enter password">
+            <div class="box">
+                <input [(ngModel)]="pass" type="password" name="pass"  id="pass" placeholder="enter password">
             </div>
-            <div class="buttonbox">
-                <button (click)="login()" type="button">Login</button>
+            <div class="box">
+                <button  type="submit">Login</button>
             </div>
 
             <a href="" routerLink="register"><b>register here</b></a>
-        <!-- </form> -->
+        </form> 
     </div>
 </div>
