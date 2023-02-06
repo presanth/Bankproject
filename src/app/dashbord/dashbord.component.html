@@ -1,1 +1,35 @@
-<h1>Welcome {{user}}</h1>
+
+
+<div class="dashbord">
+    <h1>Welcome {{user}}</h1>
+    <div class="deposit">
+        <h1>Deposit</h1>
+        <div class="depinp">
+            <input type="number" [(ngModel)]="acn1" id="dacn" name="dacn" placeholder="Account Number">
+        </div>
+        <div class="depinp">
+            <input type="text" [(ngModel)]="amt1" id="damt" name="damt" placeholder="Deposit amount">
+        </div>
+        <div class="depinp">
+            <input type="password"[(ngModel)]="pass1" name="dpswrd" id="dpswrd" placeholder="Password">
+        </div>
+        <div class="depinp">
+            <button type="button" (click)="deposit()">Deposit</button>
+        </div>
+    </div>
+    <div class="withdraw">
+        <h1>Withdraw</h1>
+        <div class="depinp">
+            <input type="number" [(ngModel)]="acn2" id="wac" name="wac" placeholder="Account Number">
+        </div>
+        <div class="depinp">
+            <input type="text" [(ngModel)]="amt2" id="wamt" name="wamt" placeholder="Withdrawal amount">
+        </div>
+        <div class="depinp">
+            <input type="password"[(ngModel)]="pass2" id="wpswrd"  name="wpswrd" placeholder="Password">
+        </div>
+        <div class="depinp">
+            <button type="button" (click)="withdraw()">withdraw</button>
+        </div>
+    </div>
+</div>

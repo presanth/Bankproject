@@ -2,3 +2,48 @@ h1{
     text-align: center;
     color: white;
 }
+
+.dashbord{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background: #ffff; */
+}
+.deposit,.withdraw{
+    width: 70%;
+    height: 35vh;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    background: #5452528f;
+    border-radius: 15px;
+}
+
+.deposit h1,.withdraw h1{
+    color:black;
+}
+
+.depinp{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.depinp input{
+    width: 50%;
+    height: 2rem;
+    margin-top: 1rem;
+    border-radius: 7px;
+    border: 1px solid black;
+    padding-left: 1rem;
+}
+.depinp button{
+    width: 150px;
+    height: 2rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+    background: white;
+}

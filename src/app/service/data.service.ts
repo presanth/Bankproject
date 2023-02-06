@@ -38,4 +38,48 @@ export class DataService {
       return false
     }
   }
+
+  userDeposit(acnum:any,pass:any,amt:any){
+    let userDetails = this.userDetails
+
+    // convert amount string to intiger
+    var amount = parseInt(amt)
+
+    if(acnum in userDetails){
+      if(pass==userDetails[acnum]["password"]) {
+
+        // update balance
+        userDetails[acnum]["balance"]+=amount
+
+        // return balance
+        return userDetails[acnum]["balance"]
+      }else {
+        return false
+      }
+    }else{
+      return false
+    }
+  }
+
+  userWithdraw(acnum:any,pass:any,amt:any){
+    let userDetails = this.userDetails
+
+    var amount = parseInt(amt)
+    if(acnum in userDetails){
+      if(pass == userDetails[acnum]["password"]){
+        if(amount < userDetails[acnum]["balance"]){
+          userDetails[acnum]["balance"]-=amount
+
+          return userDetails[acnum]["balance"]
+        }else{
+          alert('insufficent balance')
+          return false
+        }
+      }else{
+        return false
+      }
+    }else{
+      return false
+    }
+  }
 }
