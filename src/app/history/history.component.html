@@ -1,0 +1,19 @@
+<p>history works!</p>
+
+
+<div class="history">
+    <table>
+        <tr>
+            <th>Type</th>
+            <th>amount</th>
+        </tr>
+        <tr *ngFor="let i of transactionData">
+            <td>{{i.Type}}</td>
+            <td>{{i.amount}}</td>
+        </tr>
+        <!-- <tr>
+            <td>Debit</td>
+            <td>500</td>
+        </tr> -->
+    </table>
+</div>

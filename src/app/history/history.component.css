@@ -1,0 +1,26 @@
+.history{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.history table{
+    width: 40%;
+    /* border: 1px solid rgb(255, 255, 255); */
+    background: rgba(0, 0, 0);
+
+}
+.history th,td{
+    width: 50%;
+    border: 1px solid rgb(255, 255, 255);
+    text-align: center;
+    height: 2.4rem;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+.history th{
+    background: gray;
+}
+.history td{
+    color: rgb(255, 222, 10);
+}

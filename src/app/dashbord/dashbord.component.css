@@ -47,3 +47,12 @@ h1{
     border-radius: 10px;
     background: white;
 }
+.transaction{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.transaction a{
+    color: white;
+    text-decoration: none;
+}

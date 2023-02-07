@@ -6,13 +6,14 @@ import { Injectable } from '@angular/core';
 export class DataService {
 
   currentuser=''
+  currentAcno=''
   constructor() { }
 
   userDetails:any={
-    1000:{acno:1000,username:"anu",password:"abc123",balance:0},
-    1001:{acno:1001,username:"binu",password:"abc123",balance:0},
-    1002:{acno:1002,username:"jenu",password:"abc123",balance:0},
-    1003:{acno:1003,username:"manu",password:"abc123",balance:0}
+    1000:{acno:1000,username:"anu",password:"abc123",balance:0,transaction:[]},
+    1001:{acno:1001,username:"binu",password:"abc123",balance:0,transaction:[]},
+    1002:{acno:1002,username:"jenu",password:"abc123",balance:0,transaction:[]},
+    1003:{acno:1003,username:"manu",password:"abc123",balance:0,transaction:[]}
   }
   dataRegister(acno:any,uname:any,psw:any){
     if(acno in this.userDetails){
@@ -29,7 +30,8 @@ export class DataService {
     if(acnum in userDetails){
       if(pswrd == userDetails[acnum]["password"]){
         this.currentuser = userDetails[acnum]["username"]
-        console.log(this.currentuser)
+        this.currentAcno = acnum
+        // console.log(this.currentuser)
         return true
       }else{
         return false
@@ -51,6 +53,11 @@ export class DataService {
         // update balance
         userDetails[acnum]["balance"]+=amount
 
+        // transaction data store
+        userDetails[acnum]["transaction"].push({Type:"CREDIT",amount:amount})
+
+        // console.log(userDetails);
+        
         // return balance
         return userDetails[acnum]["balance"]
       }else {
@@ -67,8 +74,15 @@ export class DataService {
     var amount = parseInt(amt)
     if(acnum in userDetails){
       if(pass == userDetails[acnum]["password"]){
-        if(amount < userDetails[acnum]["balance"]){
+        if(amount <= userDetails[acnum]["balance"]){
+
+          // update balance
           userDetails[acnum]["balance"]-=amount
+
+        // transaction data store
+          userDetails[acnum]["transaction"].push({Type:"DEBIT",amount:amount})
+
+          // console.log(userDetails);
 
           return userDetails[acnum]["balance"]
         }else{
@@ -76,10 +90,15 @@ export class DataService {
           return false
         }
       }else{
+        alert('incorrect password')
         return false
       }
     }else{
+      alert('incorrect account number')
       return false
     }
+  }
+  userTransaction(acnum:any){
+    return this.userDetails[acnum]["transaction"]
   }
 }

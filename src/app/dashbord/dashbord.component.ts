@@ -45,8 +45,6 @@ export class DashbordComponent implements OnInit {
 
     if(result){
       alert(`your account has been debited amount ${amt} . and the current balance is ${result}`)
-    }else{
-      alert('not correct')
     }
   }
 }
