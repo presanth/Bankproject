@@ -1,17 +1,28 @@
 <div class="register-main">
     <div class="register-box">
         <h1>Register</h1>
-        <div class="reginp">
-            <input type="number" [(ngModel)]="uacno" id="acno" name="acno" placeholder="Account Number">
-        </div>
-        <div class="reginp">
-            <input type="text" [(ngModel)]="uname" id="uname" name="uname" placeholder="User name">
-        </div>
-        <div class="reginp">
-            <input type="password"[(ngModel)]="upass" name="pswrd" id="pswrd" placeholder="Password">
-        </div>
-        <div class="reginp">
-            <button type="button" (click)="register()">Register Now</button>
-        </div>
+        <form action=""[formGroup]="registerForm">
+            <div class="reginp">
+                <input type="text" formControlName="acno"  id="acno" name="acno" placeholder="Account Number">
+            </div>
+            <div *ngIf="this.registerForm.get('acno')?.errors && this.registerForm.get('acno')?.touched ">
+                <p style="color: red;">invalid account number</p>
+            </div>
+            <div class="reginp">
+                <input type="text" formControlName="uname" id="uname" name="uname" placeholder="User name">
+            </div>
+            <div *ngIf="this.registerForm.get('uname')?.errors && this.registerForm.get('uname')?.touched ">
+                <p style="color: red;">invalid user name</p>
+            </div>
+            <div class="reginp">
+                <input type="password" formControlName="psw" name="pswrd" id="pswrd" placeholder="Password">
+            </div>
+            <div *ngIf="this.registerForm.get('psw')?.errors && this.registerForm.get('psw')?.touched ">
+                <p style="color: red;">invalid password</p>
+            </div>
+            <div class="reginp">
+                <button type="button" (click)="register()">Register Now</button>
+            </div>
+        </form>
     </div>
 </div>

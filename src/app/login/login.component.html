@@ -20,12 +20,18 @@
 <div class="container">
     <div class="loginbox">
         <h3>Signin</h3>
-        <form action="" (ngSubmit)="login()">
+        <form action="" [formGroup]="loginForm" (ngSubmit)="login()">
             <div class="box">
-                <input [(ngModel)]="acno" type="number" name="accountnumber" id="accountnumber" placeholder="Enter Account Number">
+                <input formControlName="acno" type="text" name="accountnumber" id="accountnumber" placeholder="Enter Account Number">
+            </div>
+            <div *ngIf="this.loginForm.get('acno')?.errors && this.loginForm.get('acno')?.touched ">
+                <p style="color: red;">invalid account number</p>
             </div>
             <div class="box">
-                <input [(ngModel)]="pass" type="password" name="pass"  id="pass" placeholder="enter password">
+                <input formControlName="pass" type="password" name="pass"  id="pass" placeholder="enter password">
+            </div>
+            <div *ngIf="this.loginForm.get('pass')?.errors && this.loginForm.get('pass')?.touched ">
+                <p style="color: red;">invalid password</p>
             </div>
             <div class="box">
                 <button  type="submit">Login</button>

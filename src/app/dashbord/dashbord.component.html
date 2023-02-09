@@ -5,34 +5,52 @@
     <div class="transaction">
         <a routerLink="/transaction">view transaction history</a>
     </div>
+    <div class="delete">
+        <button>Delete Account</button>
+        <button>LogOut</button>
+    </div>
     <div class="deposit">
         <h1>Deposit</h1>
-        <div class="depinp">
-            <input type="number" [(ngModel)]="acn1" id="dacn" name="dacn" placeholder="Account Number">
-        </div>
-        <div class="depinp">
-            <input type="text" [(ngModel)]="amt1" id="damt" name="damt" placeholder="Deposit amount">
-        </div>
-        <div class="depinp">
-            <input type="password"[(ngModel)]="pass1" name="dpswrd" id="dpswrd" placeholder="Password">
-        </div>
-        <div class="depinp">
-            <button type="button" (click)="deposit()">Deposit</button>
-        </div>
+        <form action="" [formGroup]="depositForm">
+            <div class="depinp">
+                <input type="text" formControlName="acn1" id="dacn" name="dacn" placeholder="Account Number">
+            </div>
+            <div class="depinp">
+                <input type="text" formControlName="amt1" id="damt" name="damt" placeholder="Deposit amount">
+            </div>
+            <div class="depinp">
+                <input type="password"formControlName="pass1" name="dpswrd" id="dpswrd" placeholder="Password">
+            </div>
+            <div class="depinp">
+                <button type="button" (click)="deposit()">Deposit</button>
+            </div>
+        </form>
     </div>
     <div class="withdraw">
         <h1>Withdraw</h1>
-        <div class="depinp">
-            <input type="number" [(ngModel)]="acn2" id="wac" name="wac" placeholder="Account Number">
-        </div>
-        <div class="depinp">
-            <input type="text" [(ngModel)]="amt2" id="wamt" name="wamt" placeholder="Withdrawal amount">
-        </div>
-        <div class="depinp">
-            <input type="password"[(ngModel)]="pass2" id="wpswrd"  name="wpswrd" placeholder="Password">
-        </div>
-        <div class="depinp">
-            <button type="button" (click)="withdraw()">withdraw</button>
-        </div>
+        <form action="" [formGroup]="withdrawForm">
+            <div class="depinp">
+                <input type="text" formControlName="acn2" id="wac" name="wac" placeholder="Account Number">
+            </div>
+            <div *ngIf="this.withdrawForm.get('acn2')?.errors && this.withdrawForm.get('acn2')?.touched ">
+                <p style="color: red;">invalid password</p>
+            </div>
+            <div class="depinp">
+                <input type="text" formControlName="amt2" id="wamt" name="wamt" placeholder="Withdrawal amount">
+            </div>
+            <div *ngIf="this.withdrawForm.get('amt2')?.errors && this.withdrawForm.get('amt2')?.touched ">
+                <p style="color: red;">invalid password</p>
+            </div>
+            <div class="depinp">
+                <input type="password"formControlName="pass2" id="wpswrd"  name="wpswrd" placeholder="Password">
+            </div>
+            <div *ngIf="this.withdrawForm.get('pass2')?.errors && this.withdrawForm.get('pass2')?.touched ">
+                <p style="color: red;">invalid password</p>
+            </div>
+            <div class="depinp">
+                <button type="button" (click)="withdraw()">withdraw</button>
+            </div>
+        </form>
     </div>
+
 </div>

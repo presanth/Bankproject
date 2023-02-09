@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../service/data.service';
 
@@ -9,23 +10,34 @@ import { DataService } from '../service/data.service';
 })
 export class LoginComponent implements OnInit{
 
-  acno=""
-  pass=""
-  constructor(private router:Router,private ds:DataService){ }
+
+  constructor(private router:Router,private ds:DataService,private fb:FormBuilder){ }
+
+
+  // create reactive form of login form
+  loginForm = this.fb.group({
+    acno:['',[Validators.required,Validators.pattern('[0-9]+')]],
+    pass:['',[Validators.required,Validators.pattern('[0-9a-zA-Z]+')]]
+  })
   ngOnInit () : void {
 
   }
   login(){
-    var acnum = this.acno
-    var pswrd = this.pass
+    var acnum = this.loginForm.value.acno
+    var pswrd = this.loginForm.value.pass
 
-    var result = this.ds.userLogin(acnum,pswrd)
-    if(result){
-      alert('login success')
-      this.router.navigateByUrl('dashbord')
+    if(this.loginForm.valid){
+      var result = this.ds.userLogin(acnum,pswrd)
+      if(result){
+        alert('login success')
+        this.router.navigateByUrl('dashbord')
+      }else{
+        alert('incorrect acno or pass')
+      }
     }else{
-      alert('incorrect acno or pass')
+      alert('invalid login input')
     }
+
   }
 
 }
